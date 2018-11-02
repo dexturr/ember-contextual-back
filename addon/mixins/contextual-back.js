@@ -1,7 +1,6 @@
 import Mixin from '@ember/object/mixin';
 import { schedule } from '@ember/runloop';
 import { computed } from '@ember/object';
-// TODO
 import { A } from '@ember/array' 
 export default Mixin.create({
 
@@ -48,7 +47,7 @@ export default Mixin.create({
       return true;
     },
 
-    contextualBack() {
+    back() {
       if (this.transitions.length > 1) {
         window.history.back();
       } else {

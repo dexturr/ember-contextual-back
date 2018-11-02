@@ -1,7 +1,7 @@
 import sinon from 'sinon';
 import { A } from '@ember/array';
 
-export function stubHistoryBack(hooks) {
+export default function stubHistoryBack(hooks) {
   hooks.beforeEach(function() {
     const location = this.owner.lookup('location:none');
     const originalSetURL = location.setURL.bind(location);
