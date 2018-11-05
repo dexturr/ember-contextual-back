@@ -13,6 +13,11 @@ When trying to implement a navigation stack in Ember it can be tricky to get it 
 
 Seriously though, as a team we went through about 10 implementations before arriving at this one. If you need a contextual back button I would *HIGHLY* recommend using this.
 
+Known Issues
+------------------------------------------------------------------------------
+
+Doesn't function on Chrome on iOS. This is becuase `replaceWith` does not function in iOS, so all links are pushed into the history stack and the back button remains consistitent with this.
+
 Installation
 ------------------------------------------------------------------------------
 
@@ -40,10 +45,31 @@ export default Route.extend(ContextualBack, {
 Then when you want to go back just send the action:
 
 ```html
-<a {{action 'contextualBack'}}>Back</a>
+<a {{action 'back'}}>Back</a>
 ```
 
 By default the contextual back button keeps a stack of 10 transtions max, to prevent this array becoming overly large for long lived applications. This can be changed by setting `maxBuffer` to be the desired array size on the `application` route.
+
+Testing
+------------------------------------------------------------------------------
+
+```js
+import stubHistoryBack from 'ember-contextual-back/test-support';
+
+module('Acceptance | browse', function(hooks) {
+  setupApplicationTest(hooks);
+  stubHistoryBack(hooks);
+
+  test('Some acceptance test', async function() {
+      // Code
+  });
+});
+```
+
+Using Blueprints to avoid boilerplate
+------------------------------------------------------------------------------
+
+A great way to avoid a lot of boilerplate in your acceptance test is to define your own `setup-application-test` helper that is then called in a custom acceptance-test blueprint. You can see how this works in [this repository](https://github.com/dexturr/acceptance-test-blueprint).
 
 Known Issues
 ------------------------------------------------------------------------------
