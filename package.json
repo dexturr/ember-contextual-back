@@ -1,16 +1,23 @@
 {
   "name": "ember-contextual-back",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
   "license": "MIT",
   "author": "",
   "directories": {
     "doc": "doc",
     "test": "tests"
+  },
+  "homepage": "https://github.com/dexturr/ember-contextual-back",
+  "bugs": {
+    "url": "https://github.com/dexturr/ember-contextual-back/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dexturr/ember-contextual-back.git"
   },
   "scripts": {
     "build": "ember build",
